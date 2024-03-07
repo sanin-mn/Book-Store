@@ -29,7 +29,7 @@ const Books = () => {
 
   return (
 
-    <div>
+    <div style={{height:'100vh'}}>
         <h1>Book App</h1>
         
         <div className='books'>
@@ -40,13 +40,15 @@ const Books = () => {
                         <h2>{book.title}</h2>
                         <h3>{book.desc}</h3>
                         <span>{book.price}</span>
-                        <button className='delete' onClick={()=>handleDelete(book.id)}>Delete</button>
-                        <button className='update'><Link to='/update'>Update</Link></button>
+                        <div>
+                            <button className='delete' onClick={()=>handleDelete(book.id)}>Delete</button>
+                            <button className='update'><Link to={`/update/${book.id}`}>Update</Link></button>
+                        </div>
                     </div>
                 ))
             }
         </div>
-        <button><Link to={'/add'}>Add new book</Link></button>
+        <button style={{marginTop:'3rem',width:'150px', backgroundColor:'orange',padding:'10px',fontWeight:'bold',color:'white'}}><Link to={'/add'} >Add new book</Link></button>
     </div>
   )
 }
